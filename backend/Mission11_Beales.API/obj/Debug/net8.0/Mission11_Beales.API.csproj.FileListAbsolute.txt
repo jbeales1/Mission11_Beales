@@ -68,3 +68,4 @@ C:\Users\jonat\source\repos\Mission11_Beales\backend\Mission11_Beales.API\obj\De
 C:\Users\jonat\source\repos\Mission11_Beales\backend\Mission11_Beales.API\obj\Debug\net8.0\Mission11_Beales.API.pdb
 C:\Users\jonat\source\repos\Mission11_Beales\backend\Mission11_Beales.API\obj\Debug\net8.0\Mission11_Beales.API.genruntimeconfig.cache
 C:\Users\jonat\source\repos\Mission11_Beales\backend\Mission11_Beales.API\obj\Debug\net8.0\ref\Mission11_Beales.API.dll
+C:\Users\jonat\source\repos\Mission11_Beales\backend\Mission11_Beales.API\obj\Debug\net8.0\Mission11_Beales.API.sourcelink.json

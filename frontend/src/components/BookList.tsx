@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react"; // Import hooks for state and side-effects
-import { Book } from "./types/Book"; // Import the Book type definition
+import { Book } from "../types/Book"; // Import the Book type definition
+import { useNavigate } from "react-router-dom";
+import { Tooltip } from 'bootstrap';
+document.addEventListener('DOMContentLoaded', function () {
+    Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]')).forEach(el => new Tooltip(el));
+});
 
-function BookList() {
+function BookList({selectedCategories}: {selectedCategories: string[]}) {
     // States for managing book data and pagination
     const [books, setBooks] = useState<Book[]>([]); // List of books
     const [pageSize, setPageSize] = useState<number>(5); // Number of books per page
@@ -9,11 +14,17 @@ function BookList() {
     const [totalItems, setTotalItems] = useState<number>(0); // Total number of books
     const [totalPages, setTotalPages] = useState<number>(0); // Total number of pages
     const [sortOrder, setSortOrder] = useState<string>("asc"); // Sorting order for book titles
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Fetches books from the server whenever relevant state changes
         const fetchBooks = async () => {
-            const response = await fetch(`https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}&sortBy=title&sortOrder=${sortOrder}`);
+
+            const categoryParams = selectedCategories
+            .map((cat) => `bookTypes=${encodeURIComponent(cat)}`)
+            .join('&');
+
+            const response = await fetch(`https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}&sortBy=title&sortOrder=${sortOrder}${selectedCategories.length ? `&${categoryParams}` : ''}`);
             const data = await response.json(); // Parse the JSON response
             setBooks(data.books); // Update the books state
             setTotalItems(data.totalNumBooks); // Update total item count
@@ -21,15 +32,12 @@ function BookList() {
         };
 
         fetchBooks(); // Call the async function to fetch books
-    }, [pageSize, pageNum, sortOrder]); // Dependencies for useEffect
+    }, [pageSize, pageNum, sortOrder, selectedCategories]); // Dependencies for useEffect
 
     return (
         <>
-            <h1>Professor Hilton's Book Collection</h1> {/* Header for the book list */}
-            <br />
-            
             {/* Button for toggling sorting order */}
-            <button onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}>
+            <button onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")} data-bs-toggle="tooltip" data-bs-placement="top" title="Click to sort books by title">
                 Sort by Title ({sortOrder === "asc" ? "Ascending" : "Descending"})
             </button>
 
@@ -46,6 +54,14 @@ function BookList() {
                             <li><strong>Number of Pages: </strong>{b.pageCount}</li>
                             <li><strong>Price: </strong>{b.price}</li>
                         </ul>
+
+                        <button 
+                        className="btn btn-success" 
+                        onClick={() => navigate(`/purchase/${b.title}/${b.price}/${b.bookID}`)} 
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="Click to add book to cart"
+                        >
+                            Add To Cart</button>
+
                     </div>
                 </div>
             ))}

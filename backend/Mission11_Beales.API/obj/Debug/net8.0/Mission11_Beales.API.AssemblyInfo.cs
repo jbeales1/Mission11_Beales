@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission11_Beales.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+384887f85d11772cca876a06f344d9a0060686ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission11_Beales.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission11_Beales.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

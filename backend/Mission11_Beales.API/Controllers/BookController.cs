@@ -18,9 +18,16 @@ namespace Mission11_Beales.API.Controllers
 
         // API endpoint for retrieving books with pagination, sorting, and optional filtering
         [HttpGet("AllBooks")] // HTTP GET method at the "AllBooks" endpoint
-        public IActionResult GetBooks(int pageSize = 5, int pageNum = 1, string sortBy = "title", string sortOrder = "asc")
+        public IActionResult GetBooks(int pageSize = 5, int pageNum = 1, string sortBy = "title", string sortOrder = "asc", [FromQuery] List<string>? bookTypes = null)
         {
             var query = _bookContext.Books.AsQueryable(); // Convert DbSet to IQueryable for LINQ operations
+
+            if (bookTypes != null && bookTypes.Any())
+            {
+                query = query.Where(b => bookTypes.Contains(b.Category));
+            }
+
+            var totalNumBooks = query.Count(); // Count the total number of books after applying sorting
 
             // Apply sorting based on the requested field and order
             if (sortBy.ToLower() == "title") // Check if sorting is by "title"
@@ -28,8 +35,6 @@ namespace Mission11_Beales.API.Controllers
                 // Sort in descending or ascending order based on sortOrder
                 query = sortOrder.ToLower() == "desc" ? query.OrderByDescending(b => b.Title) : query.OrderBy(b => b.Title);
             }
-
-            var totalNumBooks = query.Count(); // Count the total number of books after applying sorting
 
             var someVariable = query // Apply pagination to the sorted query
                 .Skip((pageNum - 1) * pageSize) // Skip records to reach the requested page
@@ -43,6 +48,17 @@ namespace Mission11_Beales.API.Controllers
             };
 
             return Ok(someObject); // Return the data wrapped in an HTTP 200 OK response
+        }
+        // API endpoint for retrieving all book categories
+        [HttpGet("GetBookTypes")]
+        public IActionResult GetBookTypes ()
+        {
+            var bookTypes = _bookContext.Books
+                .Select(b => b.Category)
+                .Distinct()
+                .ToList();
+
+            return Ok(bookTypes);
         }
     }
 }
