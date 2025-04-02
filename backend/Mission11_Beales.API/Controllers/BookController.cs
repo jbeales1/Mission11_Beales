@@ -60,5 +60,52 @@ namespace Mission11_Beales.API.Controllers
 
             return Ok(bookTypes);
         }
+
+        // API endpoint for adding a book
+        [HttpPost("AddBook")]
+        public IActionResult AddBook([FromBody] Book newBook)
+        {
+            _bookContext.Books.Add(newBook);
+            _bookContext.SaveChanges();
+            return Ok(newBook);
+
+        }
+
+        // API endpoint for updating a book
+        [HttpPut("UpdateBook/{bookID}")]
+        public IActionResult UpdateBook(int bookID, [FromBody] Book updatedBook)
+        {
+            var existingBook = _bookContext.Books.Find(bookID);
+            existingBook.Title = updatedBook.Title;
+            existingBook.Author = updatedBook.Author;
+            existingBook.Publisher = updatedBook.Publisher;
+            existingBook.ISBN = updatedBook.ISBN;
+            existingBook.Classification = updatedBook.Classification;
+            existingBook.Category = updatedBook.Category;
+            existingBook.PageCount = updatedBook.PageCount;
+            existingBook.Price = updatedBook.Price;
+
+            _bookContext.Books.Update(existingBook);
+            _bookContext.SaveChanges();
+
+            return Ok(existingBook);
+        }
+
+        // API endpoint for deleting a book
+        [HttpDelete("DeleteBook/{bookID}")]
+        public IActionResult DeleteProject(int bookID)
+        {
+            var book = _bookContext.Books.Find(bookID);
+
+            if (book == null)
+            {
+                return NotFound(new {message = "Book not found"});
+            }
+
+            _bookContext.Books.Remove(book);
+            _bookContext.SaveChanges();
+
+            return NoContent();
+        }
     }
 }

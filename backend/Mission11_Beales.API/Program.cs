@@ -13,7 +13,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<BookDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("BookConnection")));
 
-builder.Services.AddCors(); // allows us to get requests from specific origins
+builder.Services.AddCors(options => 
+    options.AddPolicy("AllowReactAppBlah",
+    policy => {
+        policy.WithOrigins("http://localhost:3000")
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    })); // allows us to get requests from specific origins
 
 var app = builder.Build();
 
@@ -24,7 +30,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(x => x.WithOrigins("http://localhost:3000")); // only receive requests from port 3000
+app.UseCors("AllowReactAppBlah"); // only receive requests from port 3000
 
 app.UseHttpsRedirection();
 
