@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\jonat\\source\\repos\\Mission11_Beales\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D8F33C1F-3A58-4CED-9BF5-54D442765A51}|backend\\Mission11_Beales.API\\Mission11_Beales.API.csproj|c:\\users\\jonat\\source\\repos\\mission11_beales\\backend\\mission11_beales.api\\mission11_beales.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{D8F33C1F-3A58-4CED-9BF5-54D442765A51}|backend\\Mission11_Beales.API\\Mission11_Beales.API.csproj|solutionrelative:backend\\mission11_beales.api\\mission11_beales.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D8F33C1F-3A58-4CED-9BF5-54D442765A51}|backend\\Mission11_Beales.API\\Mission11_Beales.API.csproj|c:\\users\\jonat\\source\\repos\\mission11_beales\\backend\\mission11_beales.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{D8F33C1F-3A58-4CED-9BF5-54D442765A51}|backend\\Mission11_Beales.API\\Mission11_Beales.API.csproj|solutionrelative:backend\\mission11_beales.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -47,6 +51,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Mission11_Beales.API.http",
+              "DocumentMoniker": "C:\\Users\\jonat\\source\\repos\\Mission11_Beales\\backend\\Mission11_Beales.API\\Mission11_Beales.API.http",
+              "RelativeDocumentMoniker": "backend\\Mission11_Beales.API\\Mission11_Beales.API.http",
+              "ToolTip": "C:\\Users\\jonat\\source\\repos\\Mission11_Beales\\backend\\Mission11_Beales.API\\Mission11_Beales.API.http",
+              "RelativeToolTip": "backend\\Mission11_Beales.API\\Mission11_Beales.API.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-04-01T21:59:55.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\jonat\\source\\repos\\Mission11_Beales\\backend\\Mission11_Beales.API\\appsettings.json",
               "RelativeDocumentMoniker": "backend\\Mission11_Beales.API\\appsettings.json",
@@ -54,12 +71,11 @@
               "RelativeToolTip": "backend\\Mission11_Beales.API\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-28T17:17:45.714Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-28T17:17:45.714Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "BookDbContext.cs",
               "DocumentMoniker": "C:\\Users\\jonat\\source\\repos\\Mission11_Beales\\backend\\Mission11_Beales.API\\Data\\BookDbContext.cs",
               "RelativeDocumentMoniker": "backend\\Mission11_Beales.API\\Data\\BookDbContext.cs",
@@ -71,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "BookController.cs",
               "DocumentMoniker": "C:\\Users\\jonat\\source\\repos\\Mission11_Beales\\backend\\Mission11_Beales.API\\Controllers\\BookController.cs",
               "RelativeDocumentMoniker": "backend\\Mission11_Beales.API\\Controllers\\BookController.cs",
@@ -79,8 +95,7 @@
               "RelativeToolTip": "backend\\Mission11_Beales.API\\Controllers\\BookController.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAqwCUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T22:12:50.613Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-27T22:12:50.613Z"
             }
           ]
         }

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/fe4864a7-fcef-46eb-b3cc-4ba2b22de7e0/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/Mission13Beales-Backend",
+    "appService.deploySubpath": "backend\\Mission11_Beales.API\\publish"
+}
