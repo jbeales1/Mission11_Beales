@@ -15,7 +15,7 @@ function CategoryFilter ({
 
             try {
                 // Fetch category data from the server.
-                const response = await fetch('https://localhost:5000/Book/GetBookTypes');
+                const response = await fetch('https://mission13beales-backend.azurewebsites.net/Book/GetBookTypes');
                 const data = await response.json();
                 console.log('Fetched categories:', data); // Log the fetched data for debugging purposes.
                 setCategories(data); // Update the local state with the fetched categories.
